@@ -1,6 +1,6 @@
 # 🚀 Belajar Git untuk Persiapan PBL (Project Based Learning)
 
-Selamat datang di panduan **Belajar Git**! Panduan ini dirancang khusus agar **pemula (beginner-friendly)** dapat memahami konsep dasar perversi kode (version control) menggunakan Git dan GitHub secara cepat dan mudah.
+Selamat datang di panduan **Belajar Git**! Panduan ini dirancang khusus agar **pemula (beginner-friendly)** dapat memahami konsep dasar kontrol versi (version control) menggunakan Git dan GitHub secara cepat dan praktis.
 
 ---
 
@@ -17,76 +17,87 @@ Saat mengerjakan proyek tim (seperti **PBL / Pemrograman Web**), kita sering per
   `git clone` digunakan untuk mendownload/menyalin seluruh isi repository remote (yang ada di GitHub) ke dalam komputer lokal kamu untuk pertama kali.
 * **Kapan digunakan?**  
   Saat kamu baru mulai bergabung ke dalam tim PBL atau ingin mengambil sampel proyek dari GitHub ke laptop kamu.
-* **Cara Menggunakannya:**
-  1. Buka terminal (VS Code / Git Bash / Command Prompt).
-  2. Jalankan perintah berikut:
-     ```bash
-     git clone https://github.com/username/nama-repository.git
-     ```
-  3. Masuk ke folder repository yang baru di-download:
-     ```bash
-     cd nama-repository
-     ```
 
 ---
 
-### 2. 🔄 `git pull` (Mengambil Update Terbaru)
-* **Apa itu?**  
-  `git pull` digunakan untuk mengambil (fetch) dan menggabungkan (merge) perubahan terbaru dari GitHub ke dalam laptop kamu.
-* **Kapan digunakan?**  
-  **Selalu jalankan `git pull` sebelum kamu mulai koding** agar kode di laptopmu selalu sinkron dengan kode terbaru dari teman satu timmu.
-* **Cara Menggunakannya:**
-  ```bash
-  git pull origin main
-  ```
-  *(Catatan: ganti `main` dengan nama branch utama kamu jika berbeda, misalnya `master`).*
+## 📋 Panduan Step-by-Step Penggunaan
 
----
+### 🔹 Scenario A: Cara Melakukan `git pull` (Mengambil Update Kode Tim)
 
-### 3. 📤 `git push` (Mengirim Perubahan ke GitHub)
-* **Apa itu?**  
-  `git push` digunakan untuk mengunggah (upload) commit/perubahan yang sudah kamu buat dari komputer lokal ke repository online di GitHub.
-* **Kapan digunakan?**  
-  Setelah kamu selesai membuat fitur baru, memperbaiki bug, dan sudah melakukan `git add` & `git commit`.
+Lakukan langkah ini **setiap kali kamu ingin mulai koding** agar kode di laptopmu selalu paling baru.
 
----
-
-## 💡 Alur Kerja Harian (Workflow Git)
-
-Sebelum melakukan `git push`, ada alur standard (3 langkah) yang wajib kamu lalui:
-
-```mermaid
-graph LR
-    A[Edit Kode] --> B[git add .]
-    B --> C[git commit -m "..."]
-    C --> D[git push]
-```
-
-### Langkah-demi-Langkah:
-
-1. **Cek Status Perubahan**  
-   Untuk melihat file apa saja yang baru ditambah atau diubah:
+1. **Buka Terminal / Git Bash** di dalam folder proyek kamu.
+2. **Cek status proyek lokal (Opsional):**
    ```bash
    git status
    ```
+   *Pastikan tidak ada perubahan yang belum di-commit.*
+3. **Jalankan Perintah Pull:**
+   ```bash
+   git pull origin main
+   ```
+   *(Catatan: Jika branch utama kamu bernama `master`, gunakan `git pull origin master`)*
+4. **Selesai!** Jika berhasil, terminal akan menampilkan daftar file yang berhasil di-update dari GitHub.
 
-2. **Tandai File yang Ingin Disimpan (`git add`)**  
-   Gunakan titik (`.`) untuk menandai semua file yang telah diubah:
+---
+
+### 🔹 Scenario B: Cara Melakukan `git push` (Mengirim Kerjakan ke GitHub)
+
+Lakukan langkah ini **setelah kamu selesai membuat / mengubah kode** dan ingin menyimpannya ke GitHub.
+
+1. **Langkah 1: Cek file yang telah kamu ubah**
+   ```bash
+   git status
+   ```
+   *Terminal akan menampilkan file berwarna merah (artinya file tersebut baru diubah/ditambahkan).*
+
+2. **Langkah 2: Tandai file yang akan disimpan (`git add`)**
    ```bash
    git add .
    ```
+   *(Titik `.` artinya kamu memasukkan semua file yang berubah ke staging area).*
 
-3. **Simpan Perubahan ke Catatan Git (`git commit`)**  
-   Berikan deskripsi pesan commit yang jelas mengenai apa yang kamu kerjakan:
+3. **Langkah 3: Simpan perubahan dengan pesan penjelasan (`git commit`)**
    ```bash
-   git commit -m "feat: menambahkan halaman utama index.html"
+   git commit -m "feat: menambahkan struktur dasar index.html"
    ```
+   *Tulis pesan dalam tanda kutip yang mendeskripsikan apa yang kamu kerjakan.*
 
-4. **Kirim Perubahan ke GitHub (`git push`)**  
-   Unggah hasil kerjaan kamu ke GitHub agar bisa dilihat oleh tim:
+4. **Langkah 4: Unggah ke GitHub (`git push`)**
    ```bash
    git push origin main
    ```
+   *Perubahan kamu sekarang sudah tampil secara live di repository GitHub!*
+
+---
+
+## 🔄 Alur Lengkap Koding Sehari-hari (Daily Workflow)
+
+Gabungan dari semua langkah di atas yang biasa dipakai oleh developer:
+
+```mermaid
+graph TD
+    A[1. git pull origin main] -->|Ambil update tim| B[2. Koding / Edit File]
+    B --> C[3. git status]
+    C -->|Cek perubahan| D[4. git add .]
+    D -->|Kumpulkan file| E[5. git commit -m 'pesan']
+    E -->|Simpan catatan lokal| F[6. git push origin main]
+    F -->|Upload ke GitHub| G[Selesai 🎉]
+```
+
+### Urutan Command di Terminal:
+```bash
+# 1. Sebelum mulai koding, update dulu
+git pull origin main
+
+# --- [Kamu ngetik / edit kode di VS Code] ---
+
+# 2. Setelah selesai koding, jalankan urutan ini:
+git status
+git add .
+git commit -m "perbaikan tampilan header"
+git push origin main
+```
 
 ---
 
@@ -105,4 +116,5 @@ graph LR
 > **Kebiasaan Baik Pengguna Git:**
 > 1. **Pull Dulu Sebelum Koding**: Selalu jalankan `git pull origin main` setiap hari sebelum mulai ngetik kode baru.
 > 2. **Pesan Commit Jelas**: Tulis pesan commit yang mendeskripsikan perubahan dengan singkat dan jelas.
-> 3. **Push Secara Berkala**: Jangan menunda push sampai kodingan terlalu banyak agar menghindari *merge conflict* dengan teman tim.
+> 3. **Push Secara Berkala**: Jangan menunda push sampai kodingan terlalu banyak agar menghindari *merge conflict* dengan teman tim.
+
