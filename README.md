@@ -22,7 +22,30 @@ Saat mengerjakan proyek tim (seperti **PBL / Pemrograman Web**), kita sering per
 
 ## 📋 Panduan Step-by-Step Penggunaan
 
-### 🔹 Scenario A: Cara Melakukan `git pull` (Mengambil Update Kode Tim)
+### 🔹 Scenario A: Cara Melakukan `git clone` (Mengunduh Repository Pertama Kali)
+
+Lakukan langkah ini **hanya sekali** saat kamu baru pertama kali mengambil proyek dari GitHub ke laptop kamu.
+
+1. **Buka halaman repository di GitHub** melalui browser.
+2. Klik tombol hijau **`< > Code`**, lalu salin (copy) link URL HTTPS repository-nya (contoh: `https://github.com/username/nama-repository.git`).
+3. **Buka Terminal / Git Bash / Command Prompt** di folder komputer tempat kamu ingin menyimpan proyek.
+4. **Jalankan Perintah Clone:**
+   ```bash
+   git clone https://github.com/username/nama-repository.git
+   ```
+5. **Masuk ke folder proyek yang baru ter-download:**
+   ```bash
+   cd nama-repository
+   ```
+6. **Buka di VS Code:**
+   ```bash
+   code .
+   ```
+7. **Selesai!** Seluruh isi proyek dari GitHub sekarang sudah ada di laptop kamu.
+
+---
+
+### 🔹 Scenario B: Cara Melakukan `git pull` (Mengambil Update Kode Tim)
 
 Lakukan langkah ini **setiap kali kamu ingin mulai koding** agar kode di laptopmu selalu paling baru.
 
@@ -39,9 +62,10 @@ Lakukan langkah ini **setiap kali kamu ingin mulai koding** agar kode di laptopm
    *(Catatan: Jika branch utama kamu bernama `master`, gunakan `git pull origin master`)*
 4. **Selesai!** Jika berhasil, terminal akan menampilkan daftar file yang berhasil di-update dari GitHub.
 
+
 ---
 
-### 🔹 Scenario B: Cara Melakukan `git push` (Mengirim Kerjakan ke GitHub)
+### 🔹 Scenario C: Cara Melakukan `git push` (Mengirim Kerjakan ke GitHub)
 
 Lakukan langkah ini **setelah kamu selesai membuat / mengubah kode** dan ingin menyimpannya ke GitHub.
 
